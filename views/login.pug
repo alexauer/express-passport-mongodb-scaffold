@@ -1,11 +1,15 @@
 extends layout
 
 block content
-	.login-panel.rounded.align-middle
-		.logo
-		form(class='form-signin', action='/login', method='POST')
-			.title-login.form-signin-heading.text-center Platform
-			input(type='text', name='username' class='form-control', placeholder='Your Account',required, autofocus)
-			input(type='password', name='password' class='form-control', placeholder='Your Passwort', required)
-			button(class='btn btn-lg btn-primary btn-login border-0 btn-block', type='submit') Login
-			span.clearfix
+	body
+		.container.d-flex.h-100
+			.row.align-self-center.w-100
+				.col-6.mx-auto
+					.login-panel.rounded
+						.logo
+						form(class='form-signin', action='/login', method='POST')
+							.title-login.form-signin-heading.text-center Platform
+							input(type='text', name='username' class='form-control', placeholder='Your Account',required, autofocus)
+							input(type='password', name='password' class='form-control', placeholder='Your Passwort', required)
+							button(class='btn btn-lg btn-primary btn-login border-0 btn-block', type='submit') Login
+							span.clearfix

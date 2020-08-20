@@ -1,16 +1,20 @@
 extends layout
-
 block content
-	.login-panel.rounded.align-middle
-		.logo
-		form(class='form-signin', action='/register', method='POST')
-			.title-login.form-signin-heading.text-center Register
-			input(type='text', name='username' class='form-control', placeholder='Your username', required, autofocus)
-			input(type='password', name='password' class='form-control', placeholder='Your password', required)
-			span.clearfix
-			if (message.length > 0)
-					#alert
-						.warning= message
+	
+	body
+		.container.d-flex.h-100
+			.row.align-self-center.w-100
+				.col-6.mx-auto
+					.login-panel.rounded.align-middle
+						.logo
+						form(class='form-signin', action='/register', method='POST')
+							.title-login.form-signin-heading.text-center Register
+							input(type='text', name='username' class='form-control', placeholder='Your username', required, autofocus)
+							input(type='password', name='password' class='form-control', placeholder='Your password', required)
+							span.clearfix
+							if (message.length > 0)
+									#alert
+										.warning= message
 
-			button(class='btn btn-lg btn-primary btn-login border-0 btn-block', type='submit') Sign Up
-			span.clearfix
+							button(class='btn btn-lg btn-primary btn-login border-0 btn-block', type='submit') Sign Up
+							span.clearfix

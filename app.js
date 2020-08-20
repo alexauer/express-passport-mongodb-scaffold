@@ -9,7 +9,10 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const helmet = require('helmet')
+const helmet = require('helmet');
+const http = require('http')
+
+const PORT = 3000;
 
 // MongoDB
 const MongoClient = require('mongodb').MongoClient
@@ -28,7 +31,7 @@ MongoClient.connect(url, function(err, client) {
 
 // Mongoose
 mongoose.Promise = global.Promise; 
-mongoose.connect('mongodb://localhost/dbname', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/dbname', {useNewUrlParser: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -91,3 +94,8 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+const httpPortalServer = http.createServer(app);
+httpPortalServer.listen(PORT, function(){
+    console.log("Node portal server running.");
+});
